@@ -30,7 +30,7 @@ writeStream.on('open', () => {
                         return console.log(err.message);
                     }
     
-                    let adjData = data.replace(/(\w+)(?:\.com)/g, 'burningbird.net')
+                    let adjData = data.replace(/(\w+)[^(\.com\s)]/g, 'burningbird.net')
     
                     fs.writeFile('./data/' + name, adjData, function (err) {
                         if (err) return console.log(err)
